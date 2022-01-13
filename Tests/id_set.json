@@ -1,0 +1,53 @@
+{
+    "scripts": [],
+    "playbooks": [],
+    "integrations": [
+        {
+            "packing_up": {
+                "name": "packing_up",
+                "file_path": "Packs/My_Pack/Integrations/packing_up/packing_up.yml",
+                "source": "github.com - nericksen/content-ci-cd-template",
+                "fromversion": "5.5.0",
+                "pack": "My_Pack",
+                "docker_image": "demisto/python3:3.9.8.24399",
+                "commands": [
+                    "baseintegration-dummy"
+                ],
+                "tests": [
+                    "No tests (auto formatted)"
+                ]
+            }
+        }
+    ],
+    "TestPlaybooks": [],
+    "Classifiers": [],
+    "Dashboards": [],
+    "IncidentFields": [],
+    "IncidentTypes": [],
+    "IndicatorFields": [],
+    "IndicatorTypes": [],
+    "Layouts": [],
+    "Reports": [],
+    "Widgets": [],
+    "Mappers": [],
+    "Packs": {
+        "My_Pack": {
+            "name": "My Pack",
+            "current_version": "1.0.0",
+            "source": "github.com - nericksen/content-ci-cd-template",
+            "author": "me",
+            "certification": "",
+            "tags": [],
+            "use_cases": [],
+            "categories": [
+                "IT Services"
+            ]
+        }
+    },
+    "GenericTypes": [],
+    "GenericFields": [],
+    "GenericModules": [],
+    "GenericDefinitions": [],
+    "Lists": [],
+    "Jobs": []
+}
