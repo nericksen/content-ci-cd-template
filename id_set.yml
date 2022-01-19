@@ -1,0 +1,19 @@
+
+      - name: Create ID Set
+        run: |
+          if [ $PACKS_CHANGED ]; then
+            cd $GITHUB_WORKSPACE/repository/
+            source $GITHUB_WORKSPACE/content/venv/bin/activate
+
+            # Download content's
+            gsutil cp gs://marketplace-dist/content/id_set.json ./Tests/content-id_set.json
+
+            # Create repository id-set
+            demisto-sdk create-id-set -o Tests/id_set.json
+
+            # Merge id-sets and copy to artifacts folder
+            #demisto-sdk merge-id-sets -i1 ./Tests/id_set.json -i2 ./Tests/content-id_set.json -o ./Tests/id_set.json
+            cp "./Tests/id_set.json" "$ARTIFACTS_FOLDER/id_set.json"
+          else
+            echo "No packs has changed, skipping step."
+          fi
