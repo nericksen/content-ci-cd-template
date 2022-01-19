@@ -122,7 +122,7 @@ jobs:
             # Upload to the artifacts server of your choice.
             # Create a file with the service account data
             # use the bucket_upload script to upload your packs to google cloud storage
-            python $GITHUB_WORKSPACE/repository/build_related_scripts/bucket_upload_aws.py --bucket_name test-content --packs_directory $ARTIFACTS_FOLDER --branch_name $BRANCH_NAME -v --default_branch master
+            python $GITHUB_WORKSPACE/repository/build_related_scripts/bucket_upload_aws.py --bucket_name xsoar-content --packs_directory $ARTIFACTS_FOLDER --branch_name $BRANCH_NAME -v --default_branch master
 
 
           else
