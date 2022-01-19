@@ -27,9 +27,6 @@ jobs:
       - name: Prepare Environment
         env:
           REF: ${{ github.ref }}
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_SESSION_TOKEN: ${{ secrets.AWS_SESSION_TOKEN }}
         run: |
           echo "PATH=/home/runner/.local/bin:$PATH" >> $GITHUB_ENV
           echo "PYTHONPATH=${GITHUB_WORKSPACE}/content:${GITHUB_WORKSPACE}:${PYTHONPATH}" >> $GITHUB_ENV
@@ -112,6 +109,9 @@ jobs:
       - name: Upload Packs to Artifacts Server
         env:
           REF: ${{ github.ref }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_SESSION_TOKEN: ${{ secrets.AWS_SESSION_TOKEN }}
         run : |
           if [ $PACKS_CHANGED ]; then
             BRANCH_NAME=${REF#refs/heads/}
