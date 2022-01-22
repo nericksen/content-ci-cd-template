@@ -112,6 +112,7 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_SESSION_TOKEN: ${{ secrets.AWS_SESSION_TOKEN }}
+          AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
         run : |
           if [ $PACKS_CHANGED ]; then
             BRANCH_NAME=${REF#refs/heads/}
@@ -126,8 +127,6 @@ jobs:
             # Create a file with the service account data
             # use the bucket_upload script to upload your packs to google cloud storage
             python $GITHUB_WORKSPACE/repository/build_related_scripts/bucket_upload_aws.py --bucket_name xsoar-content --packs_directory $ARTIFACTS_FOLDER/uploadable_packs --branch_name $BRANCH_NAME -v --default_branch master
-
-
           else
             echo "No packs has changed, skipping step."
           fi 
