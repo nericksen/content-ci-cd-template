@@ -8,7 +8,7 @@ configuration:
   name: url
   required: true
   type: 0
-- displaypassword: API Keysss
+- displaypassword: API Key
   additionalinfo: The API Key to use for connection
   name: credentials
   required: true
