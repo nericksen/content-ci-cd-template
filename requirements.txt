@@ -1,4 +1,4 @@
-demisto-sdk
+demisto-sdk==1.5.2
 virtualenv
 jsonschema
 gsutil
