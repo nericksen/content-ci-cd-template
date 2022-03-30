@@ -4,7 +4,7 @@ commonfields:
   version: -1
 configuration:
 - defaultvalue: https://example.com/
-  display: Your server url
+  display: Your server urls
   name: url
   required: true
   type: 0
