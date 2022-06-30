@@ -3,3 +3,4 @@ virtualenv
 jsonschema
 gsutil
 boto3
+poetry

@@ -51,12 +51,12 @@ jobs:
           if [ ! -e "venv" ]; then
             echo "installing venv"
             NO_HOOKS=1 SETUP_PY2=no .hooks/bootstrap
-            source ./venv/bin/activate
+            source ./.venv/bin/activate
             pip3 install -r ${GITHUB_WORKSPACE}/repository/requirements.txt
             demisto-sdk --version
           else
             echo "venv exists (from cache). activating"
-            source ./venv/bin/activate
+            source ./.venv/bin/activate
           fi
 
           # Install node packages
@@ -68,17 +68,17 @@ jobs:
       - name: Validate Files and Yaml
         if: always()
         run: |
-          source $GITHUB_WORKSPACE/content/venv/bin/activate
+          source $GITHUB_WORKSPACE/content/.venv/bin/activate
 
           cd $GITHUB_WORKSPACE/repository
 
           # Run validate on all changed files
           # You can choose what validations to use in the .demisto-sdk-conf file
-          demisto-sdk validate --quite-bc-validation --no-conf-json --allow-skipped
+          demisto-sdk validate --quiet-bc-validation --no-conf-json --allow-skipped
       - name: Run Unit Testing and Lint
         if: always()
         run: |
-          source $GITHUB_WORKSPACE/content/venv/bin/activate
+          source $GITHUB_WORKSPACE/content/.venv/bin/activate
 
           cd $GITHUB_WORKSPACE/repository
 
@@ -96,7 +96,7 @@ jobs:
       - name: Create Packs Artifacts
         run: |
           if [ $PACKS_CHANGED ]; then
-            source $GITHUB_WORKSPACE/content/venv/bin/activate
+            source $GITHUB_WORKSPACE/content/.venv/bin/activate
 
             cd $GITHUB_WORKSPACE/repository/
             for pack in Packs/*
