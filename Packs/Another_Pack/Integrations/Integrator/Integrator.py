@@ -54,7 +54,7 @@ class Client(BaseClient):
         :return: dict as {"dummy": dummy}
         :rtype: ``str``
         """
-
+        # Some additional Comment
         return {"dummy": dummy}
     # TODO: ADD HERE THE FUNCTIONS TO INTERACT WITH YOUR PRODUCT API
 
